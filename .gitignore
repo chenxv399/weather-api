@@ -29,3 +29,6 @@ pids
 # OS
 .DS_Store
 Thumbs.db
+
+# Archive
+weather-api

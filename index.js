@@ -5,7 +5,7 @@ const crypto = require('crypto');
 require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // 生成随机Bearer Token
 const bearerToken = crypto.randomBytes(32).toString('hex');
