@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const axios = require('axios');
 const compression = require('compression');
 const crypto = require('crypto');
@@ -12,6 +13,7 @@ const bearerToken = crypto.randomBytes(32).toString('hex');
 console.log(`Bearer Token for API authentication: ${bearerToken}`);
 
 // 中间件
+app.use(cors()); // 启用CORS
 app.use(compression()); // 启用Gzip压缩
 app.use((req, res, next) => {
     const authHeader = req.headers.authorization;
