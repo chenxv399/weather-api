@@ -49,7 +49,8 @@ app.get('/weather', async (req, res) => {
         console.log(`[${timestamp}] IP定位成功: ${locationData.city}, ${locationData.regionName}`);
 
         // 步骤2: 获取天气信息
-        const weatherResponse = await axios.get('https://k75egje927.re.qweatherapi.com/v7/weather/now', {
+        const weatherApiUrl = process.env.QWEATHER_API_URL;
+        const weatherResponse = await axios.get(weatherApiUrl, {
             params: {
                 location: `${locationData.lon},${locationData.lat}`
             },
